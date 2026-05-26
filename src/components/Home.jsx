@@ -41,7 +41,7 @@ const Home = () => {
         {/* Right Images */}
         <div className="relative flex flex-col items-end space-y-12">
           {/* Top Image */}
-          <imgS
+          <img
             src="/home1.jpg"
             alt="Interior Design"
             className="w-[320px] lg:w-[380px] h-[250px] lg:h-[280px] object-cover"
