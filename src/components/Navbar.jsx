@@ -1,114 +1,114 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import Logo from "../assets/Logo.svg";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  // Helper for active styling
+  const linkStyles = ({ isActive }) =>
+    `hover:text-black transition-colors ${
+      isActive
+        ? "text-black font-semibold underline underline-offset-8 decoration-2"
+        : "text-gray-500 font-medium"
+    }`;
+
+  const mobileLinkStyles = ({ isActive }) =>
+    `py-2 text-base transition-colors ${
+      isActive
+        ? "text-black font-semibold border-l-2 border-black pl-2"
+        : "text-gray-500 pl-2"
+    }`;
+
   return (
-<nav className="w-full bg-white px-6 md:px-10 py-4 sticky top-0 z-50">     
-   <div className="flex items-center justify-between">
+    <nav className="w-full bg-white px-6 md:px-12 lg:px-20 py-5 sticky top-0 z-50 shadow-sm border-b border-zinc-100 font-sans">
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
         
         {/* Logo */}
-        <div className="flex items-center">
+        <Link to="/" className="flex items-center">
           <img src={Logo} alt="VivaDecor" className="h-8 w-auto" />
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex gap-10 text-sm font-medium">
+        <ul className="hidden md:flex gap-10 text-sm">
           <li>
-            <Link
-              to="/"
-              className="hover:text-gray-600 hover:underline"
-            >
+            <NavLink to="/" className={linkStyles}>
               Home
-            </Link>
+            </NavLink>
           </li>
-
           <li>
-            <Link
-              to="/services"
-              className="hover:text-gray-600 hover:underline"
-            >
+            <NavLink to="/services" className={linkStyles}>
               Services
-            </Link>
+            </NavLink>
           </li>
-
           <li>
-            <Link
-              to="/contact"
-              className="hover:text-gray-600 hover:underline"
-            >
+            <NavLink to="/contact" className={linkStyles}>
               Contact
-            </Link>
+            </NavLink>
           </li>
-
           <li>
-            <Link
-              to="/support"
-              className="hover:text-gray-600 hover:underline"
-            >
+            <NavLink to="/support" className={linkStyles}>
               Support
-            </Link>
+            </NavLink>
           </li>
         </ul>
 
         {/* Desktop Button */}
         <Link
           to="/signup"
-          className="hidden md:block bg-black text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition"
+          className="hidden md:block bg-black text-white px-6 py-2.5 rounded-sm font-medium hover:bg-gray-800 transition text-sm"
         >
           Sign Up
         </Link>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden"
+          className="md:hidden text-black focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Drawer */}
       {isOpen && (
-        <div className="md:hidden mt-4 flex flex-col gap-4 text-sm font-medium">
-          <Link
+        <div className="md:hidden mt-4 pt-4 border-t border-zinc-100 flex flex-col gap-4">
+          <NavLink
             to="/"
-            className="hover:text-gray-600"
+            className={mobileLinkStyles}
             onClick={() => setIsOpen(false)}
           >
             Home
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/services"
-            className="hover:text-gray-600"
+            className={mobileLinkStyles}
             onClick={() => setIsOpen(false)}
           >
             Services
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/contact"
-            className="hover:text-gray-600"
+            className={mobileLinkStyles}
             onClick={() => setIsOpen(false)}
           >
             Contact
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/support"
-            className="hover:text-gray-600"
+            className={mobileLinkStyles}
             onClick={() => setIsOpen(false)}
           >
             Support
-          </Link>
+          </NavLink>
 
           <Link
             to="/signup"
-            className="bg-black text-white px-6 py-2 rounded-lg text-center"
+            className="bg-black text-white px-6 py-3 rounded-sm text-center font-medium mt-2"
             onClick={() => setIsOpen(false)}
           >
             Sign Up

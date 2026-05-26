@@ -6,9 +6,6 @@ import StepsImg from "../assets/steps.svg";
 import StartIcon from "../assets/start.svg";
 import CraftIcon from "../assets/craft.svg";
 import ExecuteIcon from "../assets/execute.svg";
-import Sophie from "../assets/Sophie.svg"
-import James from "../assets/James.svg";
-import Roomm from "../assets/roomm.svg";
 
 
 const services = [
@@ -49,21 +46,6 @@ const steps = [
     icon: ExecuteIcon,
     title: "Execute",
     description: "Witness your vision becoming a reality as we execute the design plan with precision. Celebrate the joy of your newly transformed space",
-  },
-];
-
-const testimonials = [
-  {
-    text: "Working with your design team was an absolute pleasure. The attention to detail and creativity exceeded my expectations. Thank you for making my home beautiful!",
-    name: "Sophie Carter",
-    location: "New York, USA",
-    avatar: Sophie,
-  },
-  {
-    text: "Exceptional service! From the initial consultation to the final reveal, your team demonstrated professionalism and a keen eye for design. Highly recommend!",
-    name: "James Bennett",
-    location: "Toronto, Canada",
-    avatar: James,
   },
 ];
 
@@ -164,54 +146,6 @@ const Services = () => {
         <img src={StepsImg} alt="Design Steps" className="w-full h-[450px] object-cover" />
       </div>
 
-<section className="w-full bg-white ">
-
-  {/* Image + Heading side by side */}
-  <div className="relative flex items-start">
-
-    {/* Room Image — taller than cards */}
-    <img
-      src={Roomm}
-      alt="Interior Room"
-      className="w-[720px] h-[500px]  object-cover z-0"
-    />
-
-    {/* Heading — sits to the right of image */}
-    <h2 className="text-3xl md:text-4xl font-semibold text-black leading-snug pt-4 pl-10">
-      What Our Customers<br />Say About Us
-    </h2>
-
-    {/* White bg block that overlaps image + holds cards */}
-    <div className="flex gap-4 absolute bottom-0 left-[380px] z-10 bg-white pt-4 pl-4">
-      {testimonials.map((t) => (
-        <div
-          key={t.name}
-          className="w-[380px] h-[340px] bg-[#222] text-white p-6 flex flex-col justify-between"
-        >
-          <div className="flex flex-col gap-3">
-            <span className="text-5xl text-gray-400">"</span>
-            <p className="text-lg text-gray-400 leading-8">{t.text}</p>
-          </div>
-          <div className="flex items-center gap-3">
-            <img src={t.avatar} alt={t.name} className="w-9 h-9 rounded-full object-cover" />
-            <div>
-              <div className="text-sm font-semibold text-white">{t.name}</div>
-              <div className="text-xs text-gray-400">{t.location}</div>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-
-  </div>
-
-  {/* Nav Arrows */}
-  <div className="flex gap-3 mt-6">
-    <button className="w-10 h-10 border border-gray-300 flex items-center justify-center text-base hover:bg-gray-100 transition">←</button>
-    <button className="w-10 h-10 border border-gray-300 flex items-center justify-center text-base hover:bg-gray-100 transition">→</button>
-  </div>
-
-</section>
 
     </section>
     
