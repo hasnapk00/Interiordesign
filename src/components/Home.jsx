@@ -41,19 +41,18 @@ const Home = () => {
         {/* Right Images */}
         <div className="relative flex flex-col items-end space-y-12">
           {/* Top Image */}
-          <img
-            src="/Home1.jpg"
+          <imgS
+            src="/home1.jpg"
             alt="Interior Design"
             className="w-[320px] lg:w-[380px] h-[250px] lg:h-[280px] object-cover"
           />
-
           {/* Bottom Image */}
           <div className="relative -mt-10 mr-auto">
             {/* Square outline */}
             <div className="absolute -left-8 -top-8 w-25 h-25 border border-gray-700" />
 
             <img
-              src="/Home2.jpg"
+              src="/home2.jpg"
               alt="Living Room"
               className="w-[380px] lg:w-[440px] h-[240px] lg:h-[300px] object-cover relative z-10"
             />
