@@ -1,7 +1,5 @@
-import React from "react";
 import Logo from "../assets/Logo.svg";
-import { HiOutlineMail } from "react-icons/hi";
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 const Footer = () => {
   return (

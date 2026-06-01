@@ -1,3 +1,4 @@
+import { useState } from "react";
 import LightingIcon from "../assets/lighting.svg";
 import InteriorIcon from "../assets/interior.svg";
 import OutdoorIcon from "../assets/outdoor.svg";
@@ -27,8 +28,14 @@ const services = [
 ];
 
 const faqs = [
-  "Living Room Interior Design",
-  "Commercial Office Room Interior Design",
+  {
+    title: "Living Room Interior Design",
+    description: "We create comfortable and luxurious living spaces tailored to your lifestyle. By incorporating custom furniture layouts, ambient lighting, and rich texture palettes, we design the perfect gathering place for your family and guests.",
+  },
+  {
+    title: "Commercial Office Room Interior Design",
+    description: "Our commercial office designs optimize workspace functionality and aesthetic appeal. We focus on enhancing productivity, leaving positive client impressions, and boosting employee well-being through ergonomics and modern layouts.",
+  },
 ];
 
 const steps = [
@@ -50,8 +57,14 @@ const steps = [
 ];
 
 const Services = () => {
+  const [openFaqIndex, setOpenFaqIndex] = useState(null);
+
+  const toggleFaq = (index) => {
+    setOpenFaqIndex(openFaqIndex === index ? null : index);
+  };
+
   return (
-    <section className="w-full bg-white px-6 md:px-12 lg:px-20 py-16 flex flex-col gap-20">
+    <section id="services" className="w-full bg-white px-6 md:px-12 lg:px-20 py-16 flex flex-col gap-20">
 
       {/* Part 1 — Our Services */}
       <div>
@@ -87,16 +100,48 @@ const Services = () => {
           </p>
 
           <div className="flex flex-col">
-            {faqs.map((item) => (
-              <div key={item} className="flex items-center justify-between border-t border-gray-200 py-5">
-                <span className="text-sm font-semibold text-black">{item}</span>
-                <span className="text-xl text-black">+</span>
+            {faqs.map((item, index) => (
+              <div key={item.title} className="border-t border-gray-200 py-5">
+                <div
+                  className="flex items-center justify-between cursor-pointer select-none"
+                  onClick={() => toggleFaq(index)}
+                >
+                  <span className="text-sm font-semibold text-black">{item.title}</span>
+                  <span className="text-xl text-black">
+                    {openFaqIndex === index ? "−" : "+"}
+                  </span>
+                </div>
+                
+                <div
+                  className={`overflow-hidden transition-all duration-300 ${
+                    openFaqIndex === index ? "max-h-40 mt-4 opacity-100" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <p className="text-sm text-gray-500 leading-relaxed mb-3">
+                    {item.description}
+                  </p>
+                  <a
+                    href="#contact"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    className="text-xs font-semibold text-black hover:underline cursor-pointer inline-flex items-center gap-1"
+                  >
+                    Learn More →
+                  </a>
+                </div>
               </div>
             ))}
             <div className="border-t border-gray-200" />
           </div>
 
-          <button className="w-fit bg-black text-white px-10 py-4 text-sm font-medium hover:bg-gray-800 transition">
+          <button
+            onClick={() => {
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="w-fit bg-black text-white px-10 py-4 text-sm font-medium hover:bg-gray-800 transition cursor-pointer"
+          >
             Learn More
           </button>
         </div>

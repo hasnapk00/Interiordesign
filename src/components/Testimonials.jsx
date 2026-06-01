@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Sophie from "../assets/Sophie.svg";
 import James from "../assets/James.svg";
@@ -47,7 +47,7 @@ const Testimonials = () => {
   const secondVisible = testimonials[(startIndex + 1) % testimonials.length];
 
   return (
-    <section className="w-full bg-white px-6 md:px-12 lg:px-20 py-16 lg:py-24 font-sans overflow-hidden">
+    <section id="testimonials" className="w-full bg-white px-6 md:px-12 lg:px-20 py-16 lg:py-24 font-sans overflow-hidden">
       <div className="max-w-7xl mx-auto">
         
         {/* Mobile-only Heading */}

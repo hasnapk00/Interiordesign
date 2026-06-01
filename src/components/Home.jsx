@@ -1,9 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
 const Home = () => {
   return (
-    <section className="w-full min-h-[calc(100vh-80px)] bg-white px-6 md:px-12 lg:px-20 py-12 flex items-center font-sans overflow-hidden">
+    <section id="home" className="w-full min-h-[calc(100vh-80px)] bg-white px-6 md:px-12 lg:px-20 py-12 flex items-center font-sans overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center w-full">
         
         {/* Left Content */}
@@ -19,9 +16,16 @@ const Home = () => {
             epitome of luxury and sophistication
           </p>
 
-          <Link to="/signup" className="mt-8 bg-black text-white px-8 py-4 rounded-sm font-medium hover:bg-gray-800 transition text-sm">
+          <a
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="mt-8 bg-black text-white px-8 py-4 rounded-sm font-medium hover:bg-gray-800 transition text-sm text-center"
+          >
             Start Project
-          </Link>
+          </a>
 
           {/* Stats */}
           <div className="mt-12 flex flex-wrap gap-8 md:gap-16 w-full">
@@ -61,7 +65,12 @@ const Home = () => {
             />
 
             {/* Scroll Indicator Button */}
-            <button className="absolute bottom-0 right-0 w-14 h-14 sm:w-20 sm:h-20 bg-black flex items-center justify-center z-20 text-white text-2xl hover:bg-gray-800 transition cursor-pointer">
+            <button
+              onClick={() => {
+                document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="absolute bottom-0 right-0 w-14 h-14 sm:w-20 sm:h-20 bg-black flex items-center justify-center z-20 text-white text-2xl hover:bg-gray-800 transition cursor-pointer"
+            >
               ↓
             </button>
           </div>
